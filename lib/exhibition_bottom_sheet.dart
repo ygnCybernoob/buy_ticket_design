@@ -18,7 +18,7 @@ class ExhibitionBottomSheet extends StatefulWidget {
 
 class _ExhibitionBottomSheetState extends State<ExhibitionBottomSheet>
     with SingleTickerProviderStateMixin {
-  AnimationController _controller;
+  late AnimationController _controller;
 
   double get maxHeight => MediaQuery.of(context).size.height;
 
@@ -59,7 +59,7 @@ class _ExhibitionBottomSheetState extends State<ExhibitionBottomSheet>
   }
 
   double lerp(double min, double max) =>
-      lerpDouble(min, max, _controller.value);
+      lerpDouble(min, max, _controller.value)!;
 
   @override
   Widget build(BuildContext context) {
@@ -139,7 +139,7 @@ class _ExhibitionBottomSheetState extends State<ExhibitionBottomSheet>
   }
 
   void _handleDragUpdate(DragUpdateDetails details) {
-    _controller.value -= details.primaryDelta / maxHeight;
+    _controller.value -= details.primaryDelta! / maxHeight;
   }
 
   void _handleDragEnd(DragEndDetails details) {
@@ -167,14 +167,14 @@ class ExpandedEventItem extends StatelessWidget {
   final String date;
 
   const ExpandedEventItem(
-      {Key key,
-      this.topMargin,
-      this.height,
-      this.isVisible,
-      this.borderRadius,
-      this.title,
-      this.date,
-      this.leftMargin})
+      {Key? key,
+      required this.topMargin,
+      required this.height,
+      required this.isVisible,
+      required this.borderRadius,
+      required this.title,
+      required this.date,
+      required this.leftMargin})
       : super(key: key);
 
   @override
@@ -258,8 +258,7 @@ class SheetHeader extends StatelessWidget {
   final double fontSize;
   final double topMargin;
 
-  const SheetHeader(
-      {Key key, @required this.fontSize, @required this.topMargin})
+  const SheetHeader({Key? key, required this.fontSize, required this.topMargin})
       : super(key: key);
 
   @override

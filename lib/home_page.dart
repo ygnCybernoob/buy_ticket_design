@@ -1,6 +1,6 @@
-import 'package:buy_tickets_design/exhibition_bottom_sheet.dart';
-import 'package:buy_tickets_design/sliding_cards.dart';
-import 'package:buy_tickets_design/tabs.dart';
+import 'package:buy_ticket_design/exhibition_bottom_sheet.dart';
+import 'package:buy_ticket_design/sliding_cards.dart';
+import 'package:buy_ticket_design/tabs.dart';
 import 'package:flutter/material.dart';
 
 import 'exhibition_bottom_sheet.dart';

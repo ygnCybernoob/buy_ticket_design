@@ -1,4 +1,4 @@
-import 'package:buy_tickets_design/home_page.dart';
+import 'package:buy_ticket_design/home_page.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(new MyApp());

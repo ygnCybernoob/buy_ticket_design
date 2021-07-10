@@ -19,7 +19,7 @@ class MyTab extends StatelessWidget {
   final String text;
   final bool isSelected;
 
-  const MyTab({Key key, @required this.isSelected, @required this.text})
+  const MyTab({Key? key, required this.isSelected, required this.text})
       : super(key: key);
 
   @override

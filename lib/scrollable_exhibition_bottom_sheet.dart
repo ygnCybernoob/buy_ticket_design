@@ -101,7 +101,8 @@ class MyEventItem extends StatelessWidget {
   final Event event;
   final double percentageCompleted;
 
-  const MyEventItem({Key key, this.event, this.percentageCompleted})
+  const MyEventItem(
+      {Key? key, required this.event, required this.percentageCompleted})
       : super(key: key);
 
   @override
@@ -222,8 +223,7 @@ class SheetHeader extends StatelessWidget {
   final double fontSize;
   final double topMargin;
 
-  const SheetHeader(
-      {Key key, @required this.fontSize, @required this.topMargin})
+  const SheetHeader({Key? key, required this.fontSize, required this.topMargin})
       : super(key: key);
 
   @override

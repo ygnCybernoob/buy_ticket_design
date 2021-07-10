@@ -1,6 +1,7 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'dart:math' as math;
 
 class SlidingCardsView extends StatefulWidget {
   @override
@@ -8,7 +9,7 @@ class SlidingCardsView extends StatefulWidget {
 }
 
 class _SlidingCardsViewState extends State<SlidingCardsView> {
-  PageController pageController;
+  late PageController pageController;
   double pageOffset = 0;
 
   @override
@@ -16,7 +17,7 @@ class _SlidingCardsViewState extends State<SlidingCardsView> {
     super.initState();
     pageController = PageController(viewportFraction: 0.8);
     pageController.addListener(() {
-      setState(() => pageOffset = pageController.page);
+      setState(() => pageOffset = pageController.page!);
     });
   }
 
@@ -58,11 +59,11 @@ class SlidingCard extends StatelessWidget {
   final double offset;
 
   const SlidingCard({
-    Key key,
-    @required this.name,
-    @required this.date,
-    @required this.assetName,
-    @required this.offset,
+    Key? key,
+    required this.name,
+    required this.date,
+    required this.assetName,
+    required this.offset,
   }) : super(key: key);
 
   @override
@@ -106,10 +107,7 @@ class CardContent extends StatelessWidget {
   final double offset;
 
   const CardContent(
-      {Key key,
-      @required this.name,
-      @required this.date,
-      @required this.offset})
+      {Key? key, required this.name, required this.date, required this.offset})
       : super(key: key);
 
   @override
@@ -136,13 +134,13 @@ class CardContent extends StatelessWidget {
             children: <Widget>[
               Transform.translate(
                 offset: Offset(48 * offset, 0),
-                child: RaisedButton(
-                  color: Color(0xFF162A49),
+                child: RawMaterialButton(
+                  fillColor: Color(0xFF162A49),
                   child: Transform.translate(
                     offset: Offset(24 * offset, 0),
                     child: Text('Reserve'),
                   ),
-                  textColor: Colors.white,
+                  textStyle: TextStyle(color: Colors.white),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(32),
                   ),
